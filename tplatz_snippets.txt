@@ -50,3 +50,16 @@ snippet com
 	###=================================================================================###
 	
 		# 
+
+snippet export
+	# export toggle
+	if(p_opt_export){
+	
+		# create results file
+		fwrite(x    = ${0},
+		file = paste0(p_dir_out, ""))
+		
+	}
+
+snippet gplots
+	ztest <- ggplot(data = , aes(x = , y = ,)) + geom_point() + theme_bw()
