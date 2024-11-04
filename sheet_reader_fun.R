@@ -1,6 +1,6 @@
 # function: sheet_reader_fun
 # description: reads all sheets in an excel file and stacks them
-# r-version: 4.1.3
+# r-version: 4.4.0
 # dependencies: readxl and data.table
 # notes: assumes sheets are stackable. use read_excel options (use.names and fill) to adjust assumptions of stackability
 

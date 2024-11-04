@@ -2,7 +2,7 @@
 ### title: example script for airum: average credits by gender and fiscal year (data request id #156)
 ### author: tyler platz
 ### date: 2024-11-06
-### r-version: 4.1.3
+### r-version: 4.4.0
 ### notes: this is an example script that shows how to create a script header,
 ###        outline sections using comment blocks, and organize code to make
 ###        collaborating with others easier. this sample script:
