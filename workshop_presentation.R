@@ -38,19 +38,20 @@
 ### slide 3: reflecting
 ###=================================================================================###
 
-  # things to note about sample_script_outline.R:
-  #   1. the file header
-  #   2. the comment section blocks
-  #   3. comments on EACH line of code
-  #   4. the use of timestamps in the results file name
-  #   5. indentation for organization
-
-
   # we can leverage the written nature of code to create a written log of:
   #   1. the data we use (files, locations, dates of extraction)
   #   2. the data cleaning processes we use
   #   3. the time the analysis was performed
   #   4. the data we create
+
+  # things to note about sample_script_outline.R:
+  #   1. the file header
+  #   2. the comment section blocks
+  #   3. comments on EACH line of code (not just how, why?)
+  #   4. the use of timestamps in the results file name
+  #   5. indentation for organization
+
+  # others in our team can use this log to recreate our work (and our future-selves too!)
 
 
   ##examples##
@@ -63,7 +64,7 @@
   ###=================================================================================###
   
     ###=================================================================================###
-    ### b. this is a comment sub-section (indented)
+    ### a.1. this is a comment sub-section (indented)
     ###=================================================================================###
 
       # and here's another example of indentation to show how multiple lines are linked
@@ -82,8 +83,10 @@
 
   # while code itself is useful for documentation, we need to COMMENT our code
   # to maximize its effectiveness.
+      
+  # remember: not just how, but why?
 
-  # how do we code? see this entire document!
+  # how do we comment? see this entire document!
   #   1. single line commenting
   #   2. multi-
   #      line
@@ -95,16 +98,26 @@
   
   # (we'll get to comment section blocks in a minute)
       
-  
+      
+
+
+###=================================================================================###
+### slide 4.5. a demonstration
+###=================================================================================###
+
+  # but tyler, creating that script must have been very time consuming, i don't have time
+  # to write a script like that for EVERY analysis i do!
+      
+  # for my next trick, i'll break the world record for outlining a script...
+
       
   
+      
 ###=================================================================================###
 ### slide 5: snippets to make life easier
 ###=================================================================================###
-
-  # but tyler, copying and pasting that comment block every time is going to take forever!
   
-  # yes, it will! so use snippets instead! let's open tplatz_snippets.txt
+  # let's open tplatz_snippets.txt
       
   # these are snippets, or code shortcuts. to install these snippets:
   #   1. go to the rstudio menu and select 'tools'
@@ -128,7 +141,7 @@
       
   
   # snippets can save you tons of time in organizing your code and standardize code
-  # organization across your ir team
+  # organization across your ir team (and for yourself)
       
     
         
@@ -163,12 +176,12 @@
   # notice this is a simple r script. when writing functions, we want the script to:
   #   1. tell us what the function does (using comments!)
   #   2. have written code that executes the function
-  #   3. be self-contained (no extra data processing outside of the function)
+  #   3. be self-contained and flexible/general (no specific data processing outside of the function)
   #   4. as often as possible, not reference external packages/libraries
   #   5. use the :: operator to access packages whenever we absolutely have to
   #   6. be named in a manner which makes understanding its contents easy
       
-  # to source a pacakge, just point r to the location of the r file:
+  # to source a function, just point r to the location of the r file:
   source("Z:/test_folder/functions/sheet_reader_fun.R")
       
   # to use your function, just write the name! once sourced, we can call it just like:
@@ -226,7 +239,7 @@
   
   
 ###=================================================================================###
-### slide 9: a scenario - part 2
+### slide 9: a scenario - part 1
 ###=================================================================================###
 
   # scenario: each week, a snapshot of student credit load from your sis saved to a shared drive. 
@@ -251,7 +264,7 @@
   # to get just the ones with 'CreditReportSSRS' in the title, skipping all the other secondary files.
   # now using either a loop or an apply function, we can use:
   
-  all_the_real_files_loaded <- data.table::rbindlist(lapply(all_the_real_files, function(x) read_excel(x)), use.names = TRUE)
+  all_the_real_files_loaded <- data.table::rbindlist(lapply(all_the_real_files, function(x) data.table::data.table(readxl::read_excel(x)), use.names = TRUE))
 
   
   # to load and stack all those files into r. 3-months of work in three lines of code!
@@ -260,7 +273,7 @@
   
   
 ###=================================================================================###
-### slide 10: a scenario - part 3
+### slide 10: a scenario - part 2
 ###=================================================================================###
 
   # scenario: now let's suppose we need to be the one making those snapshot reports.
